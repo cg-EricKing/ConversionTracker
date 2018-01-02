@@ -16,15 +16,6 @@ function main() {
     // spreadsheet init
     // add spreadsheet link here
     var spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1n9OxlvDCbL5G9Ki-m9SXRTd9PZULYoHDOpm1bsdMifs/edit?usp=sharing';
-    
-        var headerColumn = {
-            accountName: 2,
-            orderedImpressions: 3,
-            email: 4,
-            endDate: 5
-        };
-    
-        var startRow = 2;
         // Log spreadsheet url
         Logger.log('Using spreadsheet - %s.', spreadsheet_url);
         // open ss
@@ -65,7 +56,7 @@ function main() {
        var currentConversionRate = currentStats.getConversionRate();
     }
 
-    if(currentConversions <= 0) {
+    if(currentConversions <= 0 && currentBiddingStrategy === "TARGET_SPEND") {
         Logger.log("Campaign currently has no conversions");
         // notify("Campaign currently has no conversions");
     }
